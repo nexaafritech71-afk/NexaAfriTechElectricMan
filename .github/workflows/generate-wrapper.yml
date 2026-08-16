@@ -1,0 +1,29 @@
+name: Generate Gradle Wrapper
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-wrapper:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le projet
+        uses: actions/checkout@v4
+
+      - name: Installer Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.10.2
+
+      - name: Générer le Gradle Wrapper
+        run: gradle wrapper --gradle-version 8.10.2
+
+      - name: Enregistrer le Gradle Wrapper
+        uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          commit_message: "Generate Gradle Wrapper"
+          file_pattern: "gradle/** gradlew gradlew.bat"
