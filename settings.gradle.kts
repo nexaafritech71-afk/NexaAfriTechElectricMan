@@ -18,4 +18,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "NexaAfriTechElectricMan"
 
-include(":app")
+include(":application")
