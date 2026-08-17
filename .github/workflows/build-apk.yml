@@ -1,4 +1,4 @@
-name: Construire Nexa AfriTech Electric
+name: Construire Nexa AfriTech Electric   
 
 on:
   workflow_dispatch:
